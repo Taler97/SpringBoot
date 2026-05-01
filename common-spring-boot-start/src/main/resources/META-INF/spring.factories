@@ -1,0 +1,1 @@
+org.springframework.boot.autoconmvn clean installfigure.EnableAutoConfiguration=\com.example.mybatis.MybatisAutoConfiguration

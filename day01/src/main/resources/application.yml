@@ -1,0 +1,20 @@
+# 服务器配置
+server:
+  port: 9090                   # 端口
+
+# 日志配置
+logging:
+  level:
+    com.example: DEBUG          # 你项目的包名，打印详细日志
+    root: INFO                  # 全局日志级别
+
+# Spring 核心配置
+spring:
+  application:
+    name: my-springboot-app     # 应用名称
+
+  # 如果不用数据库，下面可以不写
+  # datasource:
+  #   url: jdbc:mysql://localhost:3306/test
+  #   username: root
+  #   password: 123456
