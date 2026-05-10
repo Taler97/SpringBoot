@@ -1,0 +1,12 @@
+server:
+  port: 8080
+
+spring:
+  config:
+    activate:
+      on-profile: test
+
+# 社区团购程序配置
+community:
+  platform: 多多买菜
+  description: 测试环境使用多多买菜平台

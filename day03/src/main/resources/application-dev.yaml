@@ -1,0 +1,12 @@
+server:
+  port: 8081
+
+spring:
+  config:
+    activate:
+      on-profile: dev
+
+
+community:
+  platform: 橙心优选
+  description: 开发环境使用橙心优选平台

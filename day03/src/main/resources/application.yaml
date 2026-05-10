@@ -1,0 +1,31 @@
+spring:
+  profiles:
+    active: dev
+
+# 通用配置
+app:
+  name: 学校管理系统
+
+# 教师配置
+teacher:
+  name: 张老师
+  gender: 女
+  age: 35
+
+# 学生配置
+students:
+  - name: 小明
+    gender: 男
+    age: ${random.int(15,19)}
+    score:
+      chinese: ${random.int(80,91)}
+      math: ${random.int(70,81)}
+      english: ${random.int(90,101)}
+
+  - name: 小红
+    gender: 女
+    age: ${random.int(15,19)}
+    score:
+      chinese: ${random.int(80,91)}
+      math: ${random.int(70,81)}
+      english: ${random.int(90,101)}

@@ -1,0 +1,12 @@
+server:
+  port: 8082
+
+spring:
+  config:
+    activate:
+      on-profile: prod
+
+# 社区团购程序配置
+community:
+  platform: 美团优选
+  description: 生产环境使用美团优选平台
