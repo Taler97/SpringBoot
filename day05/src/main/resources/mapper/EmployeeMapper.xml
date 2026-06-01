@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.day05.mapper.EmployeeMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.example.day05.entity.Employee">
+        <id column="id" property="id" />
+        <result column="emp_name" property="empName" />
+        <result column="login_name" property="loginName" />
+        <result column="login_password" property="loginPassword" />
+        <result column="age" property="age" />
+        <result column="gender" property="gender" />
+        <result column="addr" property="addr" />
+        <result column="dept_name" property="deptName" />
+        <result column="status" property="status" />
+        <result column="deleted" property="deleted" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, emp_name, login_name, login_password, age, gender, addr, dept_name, status, deleted
+    </sql>
+
+</mapper>

@@ -14,6 +14,7 @@
         <module>day02</module>
         <module>day03</module>
         <module>day04</module>
+        <module>day05</module>
     </modules>
 
     <parent>
@@ -48,7 +49,12 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-jetty</artifactId>
         </dependency>
-
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <scope>runtime</scope>
+            <optional>true</optional>
+        </dependency>
     </dependencies>
 
     <build>
