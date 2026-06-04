@@ -2,6 +2,7 @@ package com.example.day05.serviceImpl;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.example.day05.entity.Employee;
 import com.example.day05.mapper.EmployeeMapper;
 import com.example.day05.service.EmployeeService;
@@ -11,6 +12,8 @@ import lombok.val;
 import org.apache.tomcat.jni.Address;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
 
 /**
  * <p>
@@ -43,9 +46,42 @@ public class EmployeeServiceImpl extends ServiceImpl<EmployeeMapper, Employee> i
         return baseMapper.update(null, wrapper);
     }
     @Transactional
-    public int deleteByAge(Integer age) {
-        LambdaUpdateWrapper<Employee> wrapper = new LambdaUpdateWrapper<>();
-        wrapper.gt(Employee::getAge, age);
-        return baseMapper.update(null, wrapper);
+    public List<Employee> selectByAge(Integer ageMin, Integer ageMax) {
+        LambdaQueryWrapper<Employee> wrapper = new LambdaQueryWrapper<>();
+        wrapper.between(Employee::getAge,ageMin,ageMax);
+        return  baseMapper.selectList(wrapper);
+    }
+    @Transactional
+    public List<Employee> selectByDeptAndGender(String dept,String dept2, String gender) {
+
+        LambdaQueryWrapper<Employee> wrapper = new LambdaQueryWrapper<>();
+        wrapper.and(w -> w.eq(Employee::getGender,gender))
+                .eq(Employee::getDeptName,dept)
+                .or()
+                .eq(Employee::getDeptName,dept2);
+        return  baseMapper.selectList(wrapper);
+    }
+    @Transactional
+    public List<Employee> selectByAddrAndStaus(String address, Byte staus) {
+        LambdaQueryWrapper<Employee> wrapper = new LambdaQueryWrapper<>();
+        wrapper.and(w -> w.eq(Employee::getAddr,address).eq(Employee::getStatus,staus));
+        return  baseMapper.selectList(wrapper);
+    }
+    @Transactional
+    public List<Employee> selectByAccount(String account,String gender,String dept) {
+        LambdaQueryWrapper<Employee> wrapper = new LambdaQueryWrapper<>();
+        wrapper.and(w->w.like(Employee::getLoginName,account)
+                .eq(Employee::getGender,gender)
+                .or()
+                .eq(Employee::getDeptName,dept));
+        return  baseMapper.selectList(wrapper);
+    }
+    public Page<Employee> queryAllOrderByAgeDesc(int current) {
+        Page<Employee> page = new Page<>(current, 5);
+
+        LambdaQueryWrapper<Employee> wrapper = new LambdaQueryWrapper<>();
+        wrapper.orderByDesc(Employee::getAge);
+
+        return this.page(page, wrapper);
     }
 }
