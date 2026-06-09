@@ -18,10 +18,7 @@
       <user-name>root</user-name>
       <schema-mapping>
         <introspection-scope>
-          <node kind="schema">
-            <name qname="db1" />
-            <name qname="db2" />
-          </node>
+          <node kind="schema" qname="springmvctest" />
         </introspection-scope>
       </schema-mapping>
       <working-dir>$ProjectFileDir$</working-dir>

@@ -15,7 +15,6 @@ import java.util.List;
 
 @Tag(name = "员工管理", description = "员工信息相关接口")
 @RestController
-@RequestMapping("/employee")
 public class EmployeeController {
 
     @Autowired
