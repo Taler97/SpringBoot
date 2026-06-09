@@ -17,12 +17,12 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 public class User extends Model<User> {
 
-    @TableId(type = IdType.ASSIGN_ID)  // 雪花算法
+    @TableId(type = IdType.ASSIGN_ID)
     private Long id;
 
     private String name;
 
-    @TableField(select = false)  // 查询时不返回密码
+    @TableField(select = false)
     private String password;
 
     private UserStatus status;

@@ -20,8 +20,8 @@ import java.util.List;
 public class UserActiveRecordMainTest {
 
     public static void main(String[] args) {
-        // 启动 Spring Boot 应用，返回上下文
-        ConfigurableApplicationContext context = SpringApplication.run(UserActiveRecordMainTest.class, args);
+
+      ConfigurableApplicationContext context = SpringApplication.run(UserActiveRecordMainTest.class, args);
         UserService userService = context.getBean(UserServiceImpl.class);
         AccountServiceImp accountServiceImp = context.getBean(AccountServiceImp.class);
         try {
@@ -57,7 +57,7 @@ public class UserActiveRecordMainTest {
             System.err.println("测试执行出错: " + e.getMessage());
             e.printStackTrace();
         } finally {
-            // 关闭 Spring 容器，释放资源
+
             context.close();
         }
     }

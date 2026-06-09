@@ -7,7 +7,7 @@ public enum UserStatus {
     ACTIVE(0, "激活"),
     INACTIVE(1, "未激活");
 
-    @EnumValue  // 标记数据库存储的值
+    @EnumValue
     private final Integer code;
     private final String desc;
 
